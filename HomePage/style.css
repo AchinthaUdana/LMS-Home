@@ -1,0 +1,560 @@
+/* root */
+:root {
+  --background-color-dark: #13152e;
+  --background-color-light: #f2fffe;
+  --white-text-color: #fff;
+  --background-color-dark-mode: #13152e;
+  --background-color-light-mode: #f2fffe;
+  --navbar-color-dark-mode: #1f1f1f00;
+  --nav-links: #e0e0e0;
+  --white: #fff;
+  --white-transparent: #ffffff2f;
+  --text-blue-color: #007bff;
+  --body-text-color: #333;
+  --shadow-blue-color: rgba(0, 81, 255, 0.5);
+  --tile-hover-color: #0057b39f;
+  --dark-gray: #333;
+  --light-dray: #555;
+  --too-light-blue: #d0e6fd;
+  --view-more: #00bcd4;
+
+  --leanx-bg: linear-gradient(120deg, #f2fffe, #b3e5f3);
+  --leanx-text-color: rgb(61, 61, 61);
+  --leanx-highlight: #3ab3fa;
+  --leanx-btn-bg: #00ffcc;
+  --leanx-btn-color: #003366;
+  --leanx-btn-hover-bg: #003366;
+  --leanx-btn-hover-color: #00ffcc;
+}
+
+body.dark-mode {
+  --leanx-bg: linear-gradient(120deg, #13152e, #00396888);
+  --leanx-text-color: #f1f1f1;
+  --leanx-highlight: #00ffcc;
+  --leanx-btn-bg: #333333;
+  --leanx-btn-color: #00ffcc;
+  --leanx-btn-hover-bg: #00ffcc;
+  --leanx-btn-hover-color: #333333;
+}
+
+/* Scrolling Animation */
+html {
+  scroll-behavior: smooth;
+}
+
+/* background moving animation */
+
+.moving-shapes {
+  position: fixed; /* Fixed to viewport */
+  top: 0;
+  left: 0;
+  width: 100vw; /* Full width of the viewport */
+  height: 100vh; /* Full height of the viewport */
+  z-index: 0; /* Ensure it stays behind content */
+  overflow: hidden;
+  pointer-events: none; /* Make it non-interactive */
+}
+
+.moving-shape {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(
+    45deg,
+    rgba(0, 3, 179, 0.5),
+    rgba(0, 144, 201, 0.473)
+  );
+  border-radius: 50%;
+  filter: blur(50px);
+  animation: moveShape 15s infinite ease-in-out;
+}
+
+.moving-shape:nth-child(1) {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.moving-shape:nth-child(2) {
+  top: 40%;
+  left: 80%;
+  animation-delay: 3s;
+  width: 150px;
+  height: 150px;
+}
+
+.moving-shape:nth-child(3) {
+  top: 70%;
+  left: 50%;
+  animation-delay: 6s;
+  width: 120px;
+  height: 120px;
+}
+
+.moving-shape:nth-child(4) {
+  top: 10%;
+  left: 70%;
+  animation-delay: 9s;
+  width: 80px;
+  height: 80px;
+}
+
+@keyframes moveShape {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(30px, -30px) scale(1.1);
+  }
+  100% {
+    transform: translate(-30px, 30px) scale(1);
+  }
+}
+@keyframes moveShape {
+  50% {
+    transform: translate(20px, -40px) scale(1.1);
+  }
+  0% {
+    transform: translate(0, 0);
+  }
+}
+
+body {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Navbar */
+
+.navbar {
+  margin: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5px;
+  background-color: var(--white-transparent);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 90%;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar .logo {
+  font-size: 29px;
+  font-weight: bold;
+  margin-left: 20px;
+  color: var(--dark-gray);
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--dark-gray);
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--text-blue-color);
+}
+
+.x {
+  color: inherit;
+  transition: color 0.5s ease;
+}
+
+.get-started-btn {
+  margin-right: 20px;
+  background-color: var(--text-blue-color);
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--white);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.get-started-btn:hover {
+  background-color: var(--text-blue-color);
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 100px 20px;
+}
+
+.hero-content {
+  max-width: 600px;
+  margin-left: 50px;
+  margin-top: 30px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-content h1 span {
+  color: var(--text-blue-color);
+}
+
+.hero-content p {
+  font-size: 1rem;
+  color: var(--light-dray);
+}
+
+.hero-image {
+  position: relative;
+}
+
+.hero-image img {
+  width: 340px;
+  margin-right: 100px;
+  margin-top: 50px;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  background-color: var(--light-dray);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 5px 10px;
+  border-radius: 20px;
+  position: absolute;
+  bottom: -20px;
+  left: 50px;
+}
+
+.badge img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-image {
+    margin-top: 20px;
+  }
+}
+
+.dark-mode-toggle {
+  margin-left: 20px;
+  top: 20px;
+  right: 20px;
+  background-color: var(--too-light-blue);
+  border: none;
+  border-radius: 30px;
+  width: 60px;
+  height: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  z-index: 1000;
+}
+
+.dark-mode-toggle span {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--text-blue-color);
+  transition: transform 0.3s ease;
+}
+
+body.dark-mode .dark-mode-toggle {
+  background-color: var(--dark-gray);
+}
+
+body.dark-mode .dark-mode-toggle span {
+  background-color: var(--white);
+  transform: translateX(30px);
+}
+
+.dark-mode-toggle:hover {
+  background-color: var(--too-light-blue);
+}
+
+body.dark-mode .dark-mode-toggle:hover {
+  background-color: var(--light-dray);
+}
+
+/* Our Process */
+.our-process-section {
+  padding: 50px 20px;
+  background-color: var(--background-color-light);
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.our-process-section h2 {
+  font-size: 3em;
+  margin-bottom: 30px;
+  color: var(--dark-gray);
+  transition: color 0.3s ease;
+}
+
+.process-scroll-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 20px;
+  padding: 20px;
+  background-color: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.process-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.process-scroll-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.process-item {
+  flex: 0 0 auto;
+  width: 300px;
+  position: relative;
+  background-color: var(--text-blue-color);
+  border-radius: 15px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.process-item:hover {
+  transform: scale(1.05);
+}
+
+.process-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px 15px 0 0;
+  display: block;
+}
+
+.process-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: var(--white);
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.process-content p {
+  font-size: 1.2em;
+  margin: 0;
+  padding: 10px;
+}
+
+.process-item:hover .process-content {
+  opacity: 1;
+  visibility: visible;
+}
+
+.process-item span {
+  display: block;
+  font-size: 1.5em;
+  margin-top: 10px;
+  color: var(--white);
+  transition: filter 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .process-item {
+    width: 250px;
+  }
+
+  .our-process-section h2 {
+    font-size: 2.5em;
+  }
+}
+
+/* LearnX AI */
+#leanx-ai {
+  padding: 60px 20px;
+  background: var(--leanx-bg);
+  color: var(--leanx-text-color);
+  text-align: center;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+.leanx-ai-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.leanx-ai-text {
+  max-width: 600px;
+  text-align: left;
+}
+
+.leanx-ai-text h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.leanx-ai-text p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.leanx-ai-text ul {
+  list-style: none;
+  padding: 0;
+}
+
+.leanx-ai-text ul li {
+  font-size: 16px;
+  margin: 10px 0;
+  position: relative;
+  padding-left: 20px;
+}
+
+.leanx-ai-text ul li::before {
+  content: "✔";
+  color: var(--leanx-highlight);
+  position: absolute;
+  left: 0;
+}
+
+.leanx-ai-image {
+  max-width: 400px;
+  text-align: center;
+}
+
+.leanx-ai-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+
+.leanx-ai-image img:hover {
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Marks Analyze Section */
+#marks-analyze {
+  padding: 60px 20px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  background-color: var(--section-bg-color);
+  color: var(--text-color);
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.marks-title {
+  font-weight: 700;
+  font-size: 36px;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.marks-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.marks-details {
+  max-width: 400px;
+  margin-right: 50px;
+  text-align: left;
+}
+
+.marks-details h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.marks-details p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.analyze-button {
+  background-color: var(--view-more);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.analyze-button:hover {
+  background-color: #007bff;
+  transform: scale(1.05);
+}
+
+/* About Us */
+
+.about-us-section {
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px auto;
+  max-width: 800px;
+  box-shadow: 0 0px 10px rgba(0, 81, 255, 0.514);
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Light mode styles */
+.light-mode .about-us-section {
+  color: var(--text-color-light);
+}
+
+.light-mode .about-us-section h2 {
+  color: var(--heading-color-light);
+}
+
+/* Dark mode styles */
+.dark-mode .about-us-section {
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-dark);
+}
+
+.dark-mode .about-us-section h2 {
+  color: var(--heading-color-dark);
+}
